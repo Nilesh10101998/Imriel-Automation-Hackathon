@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./LoginPage.css";
+import{setUserCredentials} from "./shared-resources";
 
 function LoginPage({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -9,17 +10,39 @@ function LoginPage({ onLogin }) {
   const navigate = useNavigate();
 
   // Sample authenticated credentials
-  const AUTHENTICATED_USER = "Nilesh";
-  const AUTHENTICATED_PASS = "Nilesh@123";
-  const Username = "";
+ 
+
+  const loginCredentials=[
+     {
+      userName: "Nilesh",
+      password: "Nilesh@123"
+     },
+     {
+      userName: "Shailesh",
+      password: "Shailesh@123"
+     },
+     {
+      userName: "Krushna",
+      password: "Krushna@123"
+     }
+    ]
+  let Username = "";
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    let authorisedUser=false;
+
+    loginCredentials.forEach(element => {
+      if(element.userName===username && element.password===password){
+        authorisedUser=true;
+      }
+    });
+
+    
 
     // Simple authentication check
-    if (username === AUTHENTICATED_USER && password === AUTHENTICATED_PASS) {
-      Username=AUTHENTICATED_USER;
-      // Assuming onLogin updates some global state to reflect authentication status
+    if (authorisedUser) {
+      setUserCredentials(username, password);
       onLogin({ username, password });
 
       // Navigate to the dashboard

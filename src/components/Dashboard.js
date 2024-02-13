@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { generateTestCases } from "../api"; // Adjust the path based on your project structure
 import "./Dashboard.css";
+import{getUserCredentials} from "./shared-resources";
 
 function Dashboard({ user, onLogout }) {
+  const userName=getUserCredentials();
   const [formData, setFormData] = useState({
     website: "",
     domain: "",
@@ -54,7 +56,7 @@ function Dashboard({ user, onLogout }) {
       <header className="dashboard-header">
         <h2 className="dashboard-title">Welcome, {user.username}!</h2>
         <div className="user-avatar">
-          <span className="user-info"><b>Nilesh Kasane</b></span>
+          <span className="user-info"><b>Welcome {userName}</b></span>
           <span><img src={user.avatar} alt="User Avatar" /></span>
         </div>
       </header>
