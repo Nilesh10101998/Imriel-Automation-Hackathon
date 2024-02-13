@@ -158,3 +158,48 @@
   margin: 10px; /* Adjust margin to manage spacing */
   width: calc(50% - 20px); /* Adjust the width as needed, considering the margin */
 }
+
+/* .loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-top: 20px;
+} */
+
+/* .loader {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+} */
+.loader {
+  content: " ";
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-top: 20px;
+  display: flex;
+  width: 46px;
+  height: 46px;
+  margin-top: 1rem;
+  margin-left: calc(50% - 35px);
+  border-radius: 50%;
+  border: 5px solid #3498db; /* Change the color to match your design */
+  border-color: #3498db transparent #3498db transparent; /* Dual ring color */
+  animation: loader-dual-ring 1.2s linear infinite;
+}
+
+@keyframes loader-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.user-info {
+  text-align: center;
+  justify-content: center;
+}

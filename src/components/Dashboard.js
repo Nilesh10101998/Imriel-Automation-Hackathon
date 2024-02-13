@@ -12,6 +12,7 @@ function Dashboard({ user, onLogout }) {
   });
   const [generatedTestCases, setGeneratedTestCases] = useState("");
   const navigate = useNavigate();
+  const [loading, setLoading]= useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -23,6 +24,8 @@ function Dashboard({ user, onLogout }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setLoading(true);
+
     const { website, domain, testingType, action } = formData;
 
     try {
@@ -31,6 +34,8 @@ function Dashboard({ user, onLogout }) {
     } catch (error) {
       // Handle the error (e.g., show an error message)
       console.error("Error generating test cases:", error);
+    }finally{
+      setLoading(false);
     }
   };
 
@@ -49,7 +54,8 @@ function Dashboard({ user, onLogout }) {
       <header className="dashboard-header">
         <h2 className="dashboard-title">Welcome, {user.username}!</h2>
         <div className="user-avatar">
-          <img src={user.avatar} alt="User Avatar" />
+          <span className="user-info"><b>Nilesh Kasane</b></span>
+          <span><img src={user.avatar} alt="User Avatar" /></span>
         </div>
       </header>
 
@@ -106,6 +112,7 @@ function Dashboard({ user, onLogout }) {
     </div>
       </form>
 
+    {loading && <div className="loader">Loading</div>}
 
       {generatedTestCases && (
         <div className="generated-test-cases">

@@ -11,12 +11,14 @@ function LoginPage({ onLogin }) {
   // Sample authenticated credentials
   const AUTHENTICATED_USER = "Nilesh";
   const AUTHENTICATED_PASS = "Nilesh@123";
+  const Username = "";
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Simple authentication check
     if (username === AUTHENTICATED_USER && password === AUTHENTICATED_PASS) {
+      Username=AUTHENTICATED_USER;
       // Assuming onLogin updates some global state to reflect authentication status
       onLogin({ username, password });
 
