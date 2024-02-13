@@ -64,6 +64,7 @@ function Dashboard({ user, onLogout }) {
             className="input-fields"
           />
         </label>
+        
         <label>
           Domain:
           <input
