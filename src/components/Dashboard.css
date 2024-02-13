@@ -1,0 +1,160 @@
+/* Dashboard Container */
+.dashboard-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Dashboard Header */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Dashboard Title */
+.dashboard-title {
+  margin: 0;
+  color: #007bff;
+}
+
+/* User Avatar */
+.user-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Form */
+.dashboard-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  margin-bottom: 10px;
+  color: #495057;
+}
+
+.form-input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.form-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.form-button:hover {
+  background-color: #0056b3;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Adjust as needed */
+  margin: -5px; /* This negates the effect of the margin on the child elements for alignment */
+}
+
+/* Test Cases */
+.test-cases {
+  margin-top: 20px;
+}
+
+.test-cases h3 {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.test-cases ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.test-cases li {
+  margin-bottom: 8px;
+}
+
+/* Run Button */
+.run-button {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.run-button:hover {
+  background-color: #218838;
+}
+
+.logout-button {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 10px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+}
+
+.dashboard-title {
+  font-size: 24px;
+}
+
+.user-avatar img {
+  border-radius: 50%;
+}
+
+.dashboard-form {
+  font-size: 16px;
+}
+
+.test-cases h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.test-cases ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.test-cases li {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.form-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 10px; /* Adjust margin to manage spacing */
+  width: calc(50% - 20px); /* Adjust the width as needed, considering the margin */
+}
