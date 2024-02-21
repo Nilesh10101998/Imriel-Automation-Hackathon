@@ -4,11 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { generateTestCases } from "../api"; // Adjust the path based on your project structure
 import "./Dashboard.css";
 import { getUserCredentials } from "./shared-resources";
-<<<<<<< HEAD
-=======
-import "slick-carousel/slick/slick.css"; // These imports are correct
-import "slick-carousel/slick/slick-theme.css";
->>>>>>> origin
+
 
 function Dashboard({ user, onLogout }) {
   const userName = getUserCredentials();
