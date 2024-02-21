@@ -3,19 +3,17 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { generateTestCases } from "../api"; // Adjust the path based on your project structure
 import "./Dashboard.css";
-import{getUserCredentials} from "./shared-resources";
+import { getUserCredentials } from "./shared-resources";
 
 function Dashboard({ user, onLogout }) {
-  const userName=getUserCredentials();
+  const userName = getUserCredentials();
   const [formData, setFormData] = useState({
     website: "",
     domain: "",
-    testingType: "",
   });
   const [generatedTestCases, setGeneratedTestCases] = useState("");
   const navigate = useNavigate();
-  const [loading, setLoading]= useState(false);
-
+  const [loading, setLoading] = useState(false);
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -28,22 +26,17 @@ function Dashboard({ user, onLogout }) {
 
     setLoading(true);
 
-    const { website, domain, testingType, action } = formData;
+    const { website, domain, action } = formData;
 
     try {
-      const result = await generateTestCases(website, domain, testingType,action);
+      const result = await generateTestCases(website, domain, action);
       setGeneratedTestCases(result);
     } catch (error) {
       // Handle the error (e.g., show an error message)
       console.error("Error generating test cases:", error);
-    }finally{
+    } finally {
       setLoading(false);
     }
-  };
-
-  const handleRunTests = () => {
-    // Add your logic to trigger the Cypress tests
-    alert("Running cypress test..."); // For demonstration purposes
   };
 
   const handleLogout = () => {
@@ -56,12 +49,12 @@ function Dashboard({ user, onLogout }) {
       <header className="dashboard-header">
         <h2 className="dashboard-title">Welcome, {user.username}!</h2>
         <div className="user-avatar">
-          <span className="user-info"><b>Welcome {userName}</b></span>
+          <span className="user-info"><b>Welcome, {userName}</b></span>
           <span><img src={user.avatar} alt="User Avatar" /></span>
         </div>
       </header>
-
-      <form onClick={handleSubmit} className="dashboard-form">
+      
+      <form onSubmit={handleSubmit} className="dashboard-form">
         <label>
           Website:
           <input
@@ -83,39 +76,31 @@ function Dashboard({ user, onLogout }) {
             className="input-fields"
           />
         </label>
-        <label>
-          Testing Type:
-          <input
-            type="text"
-            name="testingType"
-            value={formData.testingType}
-            onChange={handleChange}
-            className="testing-type"
-          />
-        </label>
+        
         <input type="hidden" name="action" value={formData.action} />
         <div className="button-container">
-      <button type="submit" className="form-button" onClick={() => setFormData({...formData, action: 'generate ui test cases'})}>
-      Generate UI Test Cases
-      </button>
-      <button type="submit" className="form-button" onClick={() => setFormData({...formData, action: 'generate api test cases'})}>
-      Generate API Test Cases
-      </button>
-      <button type="submit" className="form-button" onClick={() => setFormData({...formData, action: 'generate performace test cases'})}>
-      Generate Performance Test Cases
-      </button>
-      <button type="submit" className="form-button" onClick={() => setFormData({...formData, action: 'generate security test cases'})}>
-      Generate Security Test Cases
-      </button>
-     <button type="submit" className="form-button" onClick={() => setFormData({...formData, action: 'generate integration test cases'})}>
-     Generate Integration Test Cases
-     </button><button type="submit" className="form-button" onClick={() => setFormData({...formData, action: 'generate end-to-end test cases'})}>
-     Generate End-To-End Test Cases
-     </button>
-    </div>
+          <button className="form-button" onClick={() => setFormData({...formData, action: 'generate ui test cases'})}>
+            Generate UI Test Cases
+          </button>
+          <button className="form-button" onClick={() => setFormData({...formData, action: 'generate api test cases'})}>
+            Generate API Test Cases
+          </button>
+          <button className="form-button" onClick={() => setFormData({...formData, action: 'generate performace test cases'})}>
+            Generate Performance Test Cases
+          </button>
+          <button className="form-button" onClick={() => setFormData({...formData, action: 'generate security test cases'})}>
+            Generate Security Test Cases
+          </button>
+          <button className="form-button" onClick={() => setFormData({...formData, action: 'generate integration test cases'})}>
+            Generate Integration Test Cases
+          </button>
+          <button className="form-button" onClick={() => setFormData({...formData, action: 'generate end-to-end test cases'})}>
+            Generate End-To-End Test Cases
+          </button>
+        </div>
       </form>
 
-    {loading && <div className="loader">Loading</div>}
+      {loading && <div className="loader">Loading</div>}
 
       {generatedTestCases && (
         <div className="generated-test-cases">
@@ -123,10 +108,6 @@ function Dashboard({ user, onLogout }) {
           <p>{generatedTestCases}</p>
         </div>
       )}
-
-      <button onClick={handleRunTests} className="run-button">
-        Run Cypress Tests
-      </button>
 
       <button onClick={handleLogout} className="logout-button">
         Logout
