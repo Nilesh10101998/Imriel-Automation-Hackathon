@@ -47,7 +47,7 @@ function App() {
                 <Dashboard
                   user={{
                     username: "IMRIEL",
-                    avatar: "https://placekitten.com/200/200",
+                    avatar: "https://i.pravatar.cc/300",
                   }}
                   onLogout={handleLogout}
                 />
