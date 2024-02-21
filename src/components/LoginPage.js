@@ -26,7 +26,7 @@ function LoginPage({ onLogin }) {
       password: "Krushna@123"
      }
     ]
-  let Username = "";
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
