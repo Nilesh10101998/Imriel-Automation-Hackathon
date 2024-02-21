@@ -56,7 +56,7 @@ function Dashboard({ user, onLogout }) {
       <header className="dashboard-header">
         <h2 className="dashboard-title">Welcome, {user.username}!</h2>
         <div className="user-avatar">
-          <span className="user-info"><b>Welcome {userName}</b></span>
+          <span className="user-info"><b>Welcome, {userName}</b></span>
           <span><img src={user.avatar} alt="User Avatar" /></span>
         </div>
       </header>
